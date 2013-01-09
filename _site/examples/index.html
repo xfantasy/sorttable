@@ -1,0 +1,158 @@
+<!DOCTYPE HTML>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8">
+    <title>Arale - 演示文档</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="nico 0.1.0" />
+    <link type="image/x-icon" href="../static/css/favicon.ico" rel="icon">
+    <link rel="stylesheet" href="../static/css/normalize.css" />
+    <link rel="stylesheet" href="../static/css/site.css" />
+    <link rel="stylesheet" href="../static/css/solarized.css" />
+    <script src="https://a.alipayobjects.com/seajs/1.2.1/sea.js"></script>
+    <script>seajs._nicodebug = true</script>
+    <script src="../static/js/arale-helper.js"></script>
+    <script src="../static/js/site.js"></script>
+<script>
+  (function() {
+    var data;
+    seajs._package = data = {"name":"sorttable","version":"1.0.0","root":"alipay","description":"","homepage":"","author":"","repository":{"type":"git","url":""},"bugs":{"url":""},"license":"MIT","dependencies":{"class":"arale/class/1.0.0/class"},"tests":["sorttable"],"output":{"sorttable.js":"."}}
+    data.dependencies && (delete data.dependencies['$'])
+    data.devDependencies && (delete data.devDependencies['$'])
+
+    seajs.config({ alias: data.dependencies })
+    seajs.config({ alias: data.devDependencies })
+    seajs.config({ alias: {"sorttable":"../src/sorttable.js"} })
+  })();
+</script>
+    <!--[if lt IE 9]>
+    <script src="../static/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div id="body-wrapper">
+      <aside id="sidebar-wrapper">
+        <h1><a href="../">Sorttable</a><sup class="package-root"><a href="/">alipay</a></sup></h1>
+        <p class="version">当前版本：<span>1.0.0</span></p>
+        <p class="description"></p>
+        <a class="source" href="" target="_blank">View the Project</a>
+        <ul id="navigation" role="navigation">
+          <li><a href="../">文档</a></li>
+          <li><a href="../examples/">演示</a></li>
+          <li><a href="../history.html">历史</a></li>
+          <li><a href="../tests/runner.html" target="_blank">用例</a></li>
+          <li><a href="" target="_blank">讨论</a></li>
+        </ul>
+        
+
+      </aside>
+      <div id="content-wrapper">
+        <div id="content">
+<article class="hentry">
+  <h1 class="entry-title">演示文档</h1>
+  <div class="entry-content">
+    <style type="text/css">
+  .sort-table{
+    font-size: 14px;
+  }
+  .sort-table td,
+  .sort-table th{
+    border: 1px solid #ccc;
+    width: 140px;
+    text-align: center;
+    padding: 5px 4px;
+  }
+  .sort-table th{
+    padding: 7px 6px;
+    font-weight: bold;
+    background-color: #eee;
+  }
+</style>
+
+<table id='demo-table' class='sort-table'>
+  <thead>
+    <tr>
+      <th>标题</th>
+      <th>标题</th>
+      <th>标题</th>
+      <th>标题</th>
+      <th>标题</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>$ 4</td>
+      <td>345,40.00000001</td>
+      <td>arale</td>
+      <td>*</td>
+      <td>中文</td>
+    </tr>
+    <tr>
+      <td>￥ 8,000</td>
+      <td>123</td>
+      <td>seajs</td>
+      <td>^</td>
+      <td>排序</td>
+    </tr>
+    <tr>
+      <td>123 CNY</td>
+      <td>123</td>
+      <td>jquery</td>
+      <td></td>
+      <td>是</td>
+    </tr>
+    <tr>
+      <td>89000.0</td>
+      <td>1234</td>
+      <td>YUI</td>
+      <td>)</td>
+      <td>很</td>
+    </tr>
+    <tr>
+      <td>-123,034.00</td>
+      <td>345,40.001</td>
+      <td>zepto</td>
+      <td>#</td>
+      <td>麻烦的</td>
+    </tr>
+  </tbody>
+ <tfoot>
+    <tr>
+      <td colspan='5'>Counter: </td>
+    </tr>
+  </tfoot>
+</table>
+
+<script>
+seajs.use(['$', 'sorttable'], function($, Sorttable){
+  a = new Sorttable({
+    element : '#demo-table'
+  });
+
+});
+</script>
+<div class="highlight"><pre><code class="javascript">seajs.use([<span class="string">'$'</span>, <span class="string">'alipay/sorttable/1.0.0/sorttable'</span>], <span class="keyword">function</span>($, Sorttable){
+  a = <span class="keyword">new</span> Sorttable({
+    element : <span class="string">'#demo-table'</span>
+  });
+
+});
+</code></pre></div>
+  </div>
+</article>
+</div>
+      </div>
+      
+    </div>
+    <div id="footer-wrapper">
+      <footer>
+      <p class="powered">
+        <a href="http://aralejs.org">Arale</a> •
+        <a href="http://seajs.org">SeaJS</a> •
+        <a href="https://github.com/spmjs/spm">spm</a> •
+        <a href="http://lab.lepture.com/nico/">nico</a>
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
