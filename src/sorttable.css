@@ -1,0 +1,20 @@
+.sort-table{
+}
+.sort-table thead th{
+  cursor: pointer;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  user-select: none; 
+}
+.sort-table .sort-table-asc{
+  background-image: url(https://i.alipayobjects.com/e/201301/20TnvtDKaC.png);
+  background-repeat: no-repeat;
+  background-position: right 50%;
+  background-origin: content-box;
+}
+.sort-table .sort-table-desc{
+  background-image: url(https://i.alipayobjects.com/e/201301/20TnvsNHzo.png);
+  background-repeat: no-repeat;
+  background-position: right 50%;
+  background-origin: content-box;
+}

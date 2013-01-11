@@ -2,7 +2,7 @@
 <html lang="zh">
   <head>
     <meta charset="UTF-8">
-    <title>Arale - 演示文档</title>
+    <title>Arale - 排序表格演示文档</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="nico 0.1.0" />
     <link type="image/x-icon" href="../static/css/favicon.ico" rel="icon">
@@ -16,7 +16,7 @@
 <script>
   (function() {
     var data;
-    seajs._package = data = {"name":"sorttable","version":"1.0.0","root":"alipay","description":"","homepage":"","author":"","repository":{"type":"git","url":""},"bugs":{"url":""},"license":"MIT","dependencies":{"class":"arale/class/1.0.0/class"},"tests":["sorttable"],"output":{"sorttable.js":"."}}
+    seajs._package = data = {"name":"sorttable","version":"1.0.0","root":"alipay","description":"","homepage":"","author":"","repository":{"type":"git","url":""},"bugs":{"url":""},"license":"MIT","dependencies":{"$":"$","class":"arale/class/1.0.0/class"},"tests":["sorttable"],"output":{"sorttable.js":"."}}
     data.dependencies && (delete data.dependencies['$'])
     data.devDependencies && (delete data.devDependencies['$'])
 
@@ -49,7 +49,7 @@
       <div id="content-wrapper">
         <div id="content">
 <article class="hentry">
-  <h1 class="entry-title">演示文档</h1>
+  <h1 class="entry-title">排序表格演示文档</h1>
   <div class="entry-content">
     <style type="text/css">
   .sort-table{
@@ -72,11 +72,12 @@
 <table id='demo-table' class='sort-table'>
   <thead>
     <tr>
-      <th>标题</th>
-      <th>标题</th>
-      <th>标题</th>
-      <th>标题</th>
-      <th>标题</th>
+      <th>金额</th>
+      <th>数字</th>
+      <th>西文</th>
+      <th>符号</th>
+      <th>按卡号</th>
+      <th>中文</th>
     </tr>
   </thead>
   <tbody>
@@ -84,36 +85,41 @@
       <td>$ 4</td>
       <td>345,40.00000001</td>
       <td>arale</td>
-      <td>*</td>
-      <td>中文</td>
+      <td>****</td>
+      <td>CBC: <span class='card'>4309 7898 1298</span></td>
+      <td>變</td>
     </tr>
     <tr>
       <td>￥ 8,000</td>
       <td>123</td>
       <td>seajs</td>
       <td>^</td>
-      <td>排序</td>
+      <td>BBC: <span class='card'>4309 8898 1298</span></td>
+      <td>錒</td>
     </tr>
     <tr>
       <td>123 CNY</td>
       <td>123</td>
       <td>jquery</td>
       <td></td>
-      <td>是</td>
+      <td>ABC: <span class='card'>4309 9898 1298</span></td>
+      <td>畅</td>
     </tr>
     <tr>
       <td>89000.0</td>
       <td>1234</td>
       <td>YUI</td>
       <td>)</td>
-      <td>很</td>
+      <td>ICBC: <span class='card'>4309 1898 1298</span></td>
+      <td>看来</td>
     </tr>
     <tr>
       <td>-123,034.00</td>
       <td>345,40.001</td>
       <td>zepto</td>
       <td>#</td>
-      <td>麻烦的</td>
+      <td>BC: <span class='card'>5309 1898 1298</span></td>
+      <td>中文</td>
     </tr>
   </tbody>
  <tfoot>
@@ -126,16 +132,30 @@
 <script>
 seajs.use(['$', 'sorttable'], function($, Sorttable){
   a = new Sorttable({
-    element : '#demo-table'
+    element     : '#demo-table',
+    dataFilter  : function(td) {
+      // 自定义特殊字段的特殊取值方式
+      if ($(td).find('.card').length) {
+        return $(td).find('.card').text();
+      }
+      // 默认取整个td里的文本
+      return $(td).text();
+    }
   });
-
 });
 </script>
 <div class="highlight"><pre><code class="javascript">seajs.use([<span class="string">'$'</span>, <span class="string">'alipay/sorttable/1.0.0/sorttable'</span>], <span class="keyword">function</span>($, Sorttable){
   a = <span class="keyword">new</span> Sorttable({
-    element : <span class="string">'#demo-table'</span>
+    element     : <span class="string">'#demo-table'</span>,
+    dataFilter  : <span class="keyword">function</span>(td) {
+      <span class="comment">// 自定义特殊字段的特殊取值方式</span>
+      <span class="keyword">if</span> ($(td).find(<span class="string">'.card'</span>).length) {
+        <span class="keyword">return</span> $(td).find(<span class="string">'.card'</span>).text();
+      }
+      <span class="comment">// 默认取整个td里的文本</span>
+      <span class="keyword">return</span> $(td).text();
+    }
   });
-
 });
 </code></pre></div>
   </div>
