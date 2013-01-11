@@ -67,13 +67,13 @@ define(function(require, exports, module) {
       // 得到每一列的dataType，为后面的排序做准备
       for(var i = 0, l = rows.eq(0).children().length; i < l; i++) {
         if(typeof dataType[i] !== 'string' || dataType[i] === '') {
-          dataType[i] = _detectType(_getColData(this, rows, i));
+          dataType[i] = __detectType(__getColData(this, rows, i));
         }
       };
 
       // 存在trigger时才绑定click事件
       if(this.get('trigger').length) {
-        _bindSortEvent(this);
+        __bindSortEvent(this);
       }
     },
 
@@ -93,7 +93,7 @@ define(function(require, exports, module) {
       var trigger = this.get('trigger');
 
       // 得到所有行
-      var rows = _getRows(this);
+      var rows = __getRows(this);
       var colCount = $(rows).eq(0).children().length - 1;
       var colIndex = colIndex || 0;
       colIndex = colIndex < 0 ? 0 : (colIndex > colCount ? colCount : colIndex);
@@ -102,7 +102,7 @@ define(function(require, exports, module) {
       if(colIndex == orderStatus.colIndex && orderStatus.order == order) return orderStatus;
 
       // 得到所有列的数据
-      var colData = _getColData(this, rows, colIndex);
+      var colData = __getColData(this, rows, colIndex);
 
       // 倒序
       if(colIndex == orderStatus.colIndex) {
@@ -110,7 +110,7 @@ define(function(require, exports, module) {
         orderStatus.order = orderStatus.order == 'desc' ? 'asc' : 'desc';
       // 排序
       } else {
-        var orderData = _sort(colData, dataType[colIndex]);
+        var orderData = __sort(colData, dataType[colIndex]);
         orderData = order == 'desc' ? orderData.reverse() : orderData;
         orderStatus.order = order == 'desc' ? 'desc' : 'asc'; //默认正序
         orderStatus.colIndex = colIndex;
@@ -122,7 +122,7 @@ define(function(require, exports, module) {
         $(trigger).eq(colIndex).addClass(orderStatus.order == 'asc' ? this.get('ascClass') : this.get('descClass'));
       }
 
-      var html = _sortRow(rows, orderData);
+      var html = __sortRow(rows, orderData);
       rows.remove();
       this.element.find('tbody:eq(0)').append(html);
       return orderStatus;
@@ -132,7 +132,7 @@ define(function(require, exports, module) {
   /**
    * 绑定th上的排序事件
    */
-  var _bindSortEvent = function(that) {
+  var __bindSortEvent = function(that) {
     var trigger = that.get('trigger');
     $(trigger).bind('click', function(e) {
       var currentTarget = $(e.currentTarget);
@@ -153,7 +153,7 @@ define(function(require, exports, module) {
    * @param  {string} type 需要转换的类型
    * @return {string} 转换后的数据
    */
-  var _convertData = function(text, type) {
+  var __convertData = function(text, type) {
     var data = text;
     switch(type) {
     case 'coin':
@@ -174,7 +174,7 @@ define(function(require, exports, module) {
    * @param  {string} str 传入的html片段、或者数据
    * @return {string}     数据类型
    */
-  var _detectType = function(data, target) {
+  var __detectType = function(data, target) {
     var types = [];
     // 类型检测
     var detectType = function(str) {
@@ -216,10 +216,10 @@ define(function(require, exports, module) {
    * @param  {string} dataType [数据类型]
    * @return {array}           [排序后的数据]
    */
-  var _sort = function(data, dataType) {
+  var __sort = function(data, dataType) {
     // 按指定的数据类型处理原始数据
     $(data).each(function() {
-      this.data = _convertData(this.str, dataType);
+      this.data = __convertData(this.str, dataType);
     });
     // 按指定的数据类型排序
     if(dataType === 'character') {
@@ -241,7 +241,7 @@ define(function(require, exports, module) {
   /**
    * 得到所有需要排序的行
    */
-  var _getRows = function(that) {
+  var __getRows = function(that) {
     return $(that.element).find(that.get('rows'));
   };
 
@@ -252,7 +252,7 @@ define(function(require, exports, module) {
    * @param  {number} colIndex 列索引
    * @return {string}  返回单元格里的文本，或由dataFilter过滤后的文本
    */
-  var _getColData = function(that, rows, colIndex) {
+  var __getColData = function(that, rows, colIndex) {
     var colData = [];
     $(rows).each(function(index) {
       colData.push({
@@ -269,7 +269,7 @@ define(function(require, exports, module) {
    * @param  {array} data 排序后的HTML
    * @return {HTML} 排序后的html
    */
-  var _sortRow = function(rows, data) {
+  var __sortRow = function(rows, data) {
     var newTbody = [];
     $(data).each(function() {
       newTbody.push($(rows).eq(this.index)[0].outerHTML);
