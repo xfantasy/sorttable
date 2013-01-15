@@ -2,6 +2,7 @@ define(function(require, exports, module) {
   var Widget = require('arale/widget/1.0.2/widget-debug');
   var $ = require('$');
   require('./sorttable.css');
+  var PY = require('./PinYin.js');
 
   // 常见货币符号
   var CoinSymbol = '$ ￥ ￠ ￡ HKD CNY TWD EUR DEM GBP USD KPW JPY INR'.split(' ');
@@ -163,6 +164,10 @@ define(function(require, exports, module) {
     case 'coin':
     case 'number':
       data = data.trim().replace(/[,]/g, '') * 1
+      break;
+    case 'chinese':
+      data = PY.getPY(data);
+      console.log(data);
       break;
     default:
     }

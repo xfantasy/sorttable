@@ -37,7 +37,7 @@
       <td>arale</td>
       <td>****</td>
       <td>CBC: <span class='card'>4309 7898 1298</span></td>
-      <td>變</td>
+      <td>测试</td>
     </tr>
     <tr>
       <td>￥ 8,000</td>
@@ -45,7 +45,7 @@
       <td>seajs</td>
       <td>^</td>
       <td>BBC: <span class='card'>4309 8898 1298</span></td>
-      <td>錒</td>
+      <td>一下</td>
     </tr>
     <tr>
       <td>123 CNY</td>
@@ -53,7 +53,7 @@
       <td>jquery</td>
       <td></td>
       <td>ABC: <span class='card'>4309 9898 1298</span></td>
-      <td>畅</td>
+      <td>中文</td>
     </tr>
     <tr>
       <td>89000.0</td>
@@ -61,7 +61,7 @@
       <td>YUI</td>
       <td>)</td>
       <td>ICBC: <span class='card'>4309 1898 1298</span></td>
-      <td>看来</td>
+      <td>排序</td>
     </tr>
     <tr>
       <td>-123,034.00</td>
@@ -69,7 +69,7 @@
       <td>zepto</td>
       <td>#</td>
       <td>BC: <span class='card'>5309 1898 1298</span></td>
-      <td>中文</td>
+      <td>是否正确</td>
     </tr>
   </tbody>
  <tfoot>
